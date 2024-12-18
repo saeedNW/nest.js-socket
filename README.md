@@ -22,17 +22,90 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# nest.js-socket
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a simple practice **NestJS Socket-based Chat Application** designed to demonstrate the implementation of real-time communication features using WebSockets. The application allows users to create chat rooms and exchange messages in real-time. It serves as a foundational project to understand WebSocket integration in a NestJS framework and is built with modularity and scalability in mind.
 
-## Project setup
+## Table of Content
 
-```bash
-$ npm install
-```
+- [nest.js-socket](#nestjs-socket)
+  - [Table of Content](#table-of-content)
+  - [Key features](#key-features)
+  - [Prerequisites](#prerequisites)
+  - [Technologies Used](#technologies-used)
+    - [Backend technologies](#backend-technologies)
+    - [Utilities](#utilities)
+  - [Installation and Setup](#installation-and-setup)
+  - [Compile and run the project](#compile-and-run-the-project)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+  - [License](#license)
+  - [Contributors](#contributors)
+
+## Key features
+
+- **Authentication**: Users can register and login into the system using OTP structure.
+- **Profile manager**: Users can Update their profile image and username.
+- **Chat Room Management**: Create and join groups or private chat rooms.
+- **Real-time Messaging**: Send and receive messages instantly using WebSockets.
+- **Hybrid Structure**: Supports both REST APIs for user and rooms management and WebSocket gateways for real-time events.
+
+## Prerequisites
+
+Before running the project, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [NestJS](https://nestjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+## Technologies Used
+
+The project utilizes a modern tech stack to ensure real-time functionality, scalability, and maintainability:
+
+### Backend technologies
+
+- **[NestJS](https://nestjs.com/)**: A progressive framework for building efficient and scalable server-side applications.
+- **[Socket.IO](https://socket.io/)**: A library for enabling real-time, bidirectional communication between clients and servers using WebSockets.  
+- **[Mongoose](https://mongoosejs.com/)**: An ODM (Object Data Modeling) library for MongoDB, enabling easy schema and data management.
+- **[MongoDB](https://www.mongodb.com/)**: A NoSQL database for storing chat room data and messages.
+
+### Utilities
+
+- **Environment Variables**: Configuration via `.env` files for managing sensitive data securely.
+- **[Multer](https://github.com/expressjs/multer)**: Middleware for handling file uploads in the application.
+
+## Installation and Setup
+
+In order to get this application up and running on your local machine, follow the
+steps below.
+
+1. Clone the repository from GitHub:
+
+   ```shell
+   git clone https://github.com/saeedNW/nest.js-socket.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```shell
+   cd nest.js-socket
+   ```
+
+3. Install project dependencies:
+
+   ```shell
+   npm install
+   ```
+
+Note that the application default Listing port is `3000`.
 
 ## Compile and run the project
+
+To start and manage the back-end side of the project, use the following scripts:
+
+### Backend
 
 ```bash
 # development
@@ -41,59 +114,33 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
+# build production
+$ npm run build
+
 # production mode
 $ npm run start:prod
 ```
 
-## Run tests
+### Frontend
 
-```bash
-# unit tests
-$ npm run test
+To start the front-end:
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+1. Install the **Live Server** extension in **Visual Studio Code**.
+2. Open the `/client/index.html` file in VS Code.
+3. From the statusbar click on **Go Live**.
+4. The front-end will be served locally, and you can access it in your browser.
 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Contributors
+
+We would like to thank the following individuals who have contributed to the development of this application:
+
+![avatar](https://images.weserv.nl/?url=https://github.com/erfanyousefi.png?h=150&w=150&fit=cover&mask=circle&maxage=5d)
+‎ ‎ ‎ ![avatar](https://images.weserv.nl/?url=https://github.com/saeedNW.png?h=150&w=150&fit=cover&mask=circle&maxage=5d)
+
+[**Erfan Yousefi - Supervisor and instructor of the nest.js programming course**](https://github.com/erfanyousefi/)
+
+[**Saeed Norouzi - Back-end Developer**](https://github.com/saeedNW)
