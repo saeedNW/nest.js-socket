@@ -1,0 +1,472 @@
+/* Custom scrollbar for modern and minimalistic style */
+::-webkit-scrollbar {
+	width: 8px; /* Scrollbar width */
+	height: 8px; /* Horizontal scrollbar height */
+}
+
+::-webkit-scrollbar-track {
+	background: transparent; /* Transparent track for a clean look */
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(
+		100,
+		100,
+		100,
+		0.3
+	); /* Light grey with some transparency */
+	border-radius: 10px; /* Rounded edges */
+	transition: background-color 0.3s; /* Smooth color transition */
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(
+		100,
+		100,
+		100,
+		0.5
+	); /* Darker on hover for better visibility */
+}
+
+::-webkit-scrollbar-thumb:active {
+	background-color: rgba(100, 100, 100, 0.7); /* Even darker when clicked */
+}
+
+/* Optional: Style for horizontal scrollbars */
+::-webkit-scrollbar-horizontal {
+	height: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+	border-radius: 10px;
+}
+
+body {
+	background-color: #d3d3d3;
+	margin-top: 20px;
+}
+.card {
+	background: #fff;
+	transition: 0.5s;
+	border: 0;
+	margin-bottom: 30px;
+	border-radius: 0.55rem;
+	position: relative;
+	width: 100%;
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+}
+.chat-app .people-list {
+	width: 280px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 20px;
+	z-index: 7;
+}
+
+.chat-app .chat {
+	margin-left: 280px;
+	border-left: 1px solid #eaeaea;
+}
+
+.people-list {
+	-moz-transition: 0.5s;
+	-o-transition: 0.5s;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.people-list .chat-list li {
+	padding: 10px 15px;
+	list-style: none;
+	border-radius: 3px;
+}
+
+.people-list .chat-list li:hover {
+	background: #efefef;
+	cursor: pointer;
+}
+
+.people-list .chat-list li.active {
+	background: #efefef;
+}
+
+.people-list .chat-list li .name {
+	font-size: 15px;
+}
+
+.people-list .chat-list img {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+
+.people-list img {
+	float: left;
+	border-radius: 50%;
+}
+
+.people-list .about {
+	float: left;
+	padding-left: 8px;
+}
+
+.people-list .status {
+	color: #999;
+	font-size: 13px;
+}
+
+.chat .chat-header {
+	padding: 15px 20px;
+	border-bottom: 2px solid #f4f7f6;
+}
+
+.chat .chat-header img {
+	float: left;
+	border-radius: 40px;
+	width: 40px;
+}
+
+.chat .chat-header .chat-about {
+	float: left;
+	padding-left: 10px;
+}
+
+.chat .chat-history {
+	padding: 20px;
+	border-bottom: 2px solid #fff;
+}
+
+.chat .chat-history ul {
+	padding: 0;
+}
+
+.chat .chat-history ul li {
+	list-style: none;
+	margin-bottom: 30px;
+}
+
+.chat .chat-history ul li:last-child {
+	margin-bottom: 0px;
+}
+
+.chat .chat-history .message-data {
+	margin-bottom: 15px;
+}
+
+.chat .chat-history .message-data img {
+	border-radius: 40px;
+	width: 40px;
+}
+
+.chat .chat-history .message-data-time {
+	color: #434651;
+	padding-left: 6px;
+}
+
+.chat .chat-history .message {
+	color: #444;
+	padding: 18px 20px;
+	line-height: 26px;
+	font-size: 16px;
+	border-radius: 7px;
+	display: inline-block;
+	position: relative;
+}
+
+.chat .chat-history .message:after {
+	bottom: 100%;
+	left: 7%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: #fff;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.chat .chat-history .my-message {
+	background: #efefef;
+}
+
+.chat .chat-history .my-message:after {
+	bottom: 100%;
+	left: 30px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: #efefef;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.chat .chat-history .other-message {
+	background: #e8f1f3;
+	text-align: right;
+}
+
+.chat .chat-history .other-message:after {
+	border-bottom-color: #e8f1f3;
+	left: 93%;
+}
+
+.chat .chat-message {
+	padding: 20px;
+}
+
+.online,
+.offline,
+.me {
+	margin-right: 2px;
+	font-size: 8px;
+	vertical-align: middle;
+}
+
+.online {
+	color: #86c541;
+}
+
+.offline {
+	color: #e47297;
+}
+
+.me {
+	color: #1d8ecd;
+}
+
+.float-right {
+	float: right;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+#plist {
+	height: 100%;
+}
+
+#new-chat {
+	position: absolute;
+	bottom: 19px;
+}
+
+#chat-list {
+	height: 81%;
+	overflow: auto;
+}
+
+#chat-about {
+	height: 51px;
+}
+
+#chat-history {
+	height: 437px;
+	overflow: auto;
+}
+
+#send-input-div {
+	height: 38px;
+}
+
+#usernameForm,
+#imageUploadForm,
+#newGroupForm,
+#newPrivateChatForm {
+	border: solid 1px #e7e7e7;
+	border-radius: 10px;
+	background-color: #f6f6f7;
+}
+
+/* Style for custom file input */
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+	content: "Browse";
+}
+
+/* Optional: Add rounded corners for a modern look */
+.custom-file-input,
+.custom-file-label {
+	border-radius: 20px;
+}
+
+/* File input hover effect */
+.custom-file-input:focus ~ .custom-file-label,
+.custom-file-label:hover {
+	background-color: #f8f9fa;
+	border-color: #007bff;
+	color: #007bff;
+}
+
+/* Style for the select element */
+.custom-select {
+	border: 1px solid #ced4da;
+	border-radius: 20px;
+	padding: 10px 15px;
+	background-color: #f8f9fa;
+	color: #495057;
+	transition: all 0.3s ease;
+	appearance: none; /* Removes default dropdown arrow */
+}
+
+/* Multiple select appearance */
+.custom-select[multiple] {
+	height: auto;
+	overflow-y: auto;
+	background-image: none; /* Removes dropdown arrow for multiple select */
+}
+
+/* Focus effect */
+.custom-select:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+	outline: none;
+}
+
+/* Hover effect */
+.custom-select:hover {
+	background-color: #e9ecef;
+}
+
+/* Option styling */
+.custom-select option {
+	padding: 10px;
+	color: #212529;
+}
+
+/* Optional scroll styling for multi-select */
+.custom-select::-webkit-scrollbar {
+	width: 8px;
+}
+
+.custom-select::-webkit-scrollbar-thumb {
+	background-color: #adb5bd;
+	border-radius: 10px;
+}
+
+.custom-select::-webkit-scrollbar-thumb:hover {
+	background-color: #868e96;
+}
+
+/* General styling for the select */
+.custom-select-enhanced {
+	border: 1px solid #ced4da;
+	border-radius: 20px;
+	padding: 0 15px;
+	background-color: #f8f9fa;
+	color: #495057;
+	transition:
+		border-color 0.3s ease,
+		box-shadow 0.3s ease;
+	appearance: none;
+	position: relative;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+/* Add a subtle shadow for better appearance */
+.custom-select-enhanced:hover {
+	background-color: #e9ecef;
+	border-color: #007bff;
+}
+
+/* Focus effect */
+.custom-select-enhanced:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+	outline: none;
+}
+
+/* Add an arrow to the dropdown */
+.custom-select-container {
+	position: relative;
+}
+
+.custom-select-container::after {
+	content: "\25BC"; /* Unicode for downward arrow */
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #495057;
+	pointer-events: none;
+}
+
+/* Disabled option styling */
+.custom-select-enhanced option[disabled] {
+	color: #adb5bd;
+}
+
+/* Custom scrollbar for long lists */
+.custom-select-enhanced::-webkit-scrollbar {
+	width: 8px;
+}
+
+.custom-select-enhanced::-webkit-scrollbar-thumb {
+	background-color: #adb5bd;
+	border-radius: 10px;
+}
+
+.custom-select-enhanced::-webkit-scrollbar-thumb:hover {
+	background-color: #868e96;
+}
+
+.image-message {
+	width: 200px;
+}
+
+@media only screen and (max-width: 767px) {
+	.chat-app .people-list {
+		height: 465px;
+		width: 100%;
+		overflow-x: auto;
+		background: #fff;
+		left: -400px;
+		display: none;
+	}
+	.chat-app .people-list.open {
+		left: 0;
+	}
+	.chat-app .chat {
+		margin: 0;
+	}
+	.chat-app .chat .chat-header {
+		border-radius: 0.55rem 0.55rem 0 0;
+	}
+	.chat-app .chat-history {
+		height: 300px;
+		overflow-x: auto;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+	.chat-app .chat-list {
+		height: 650px;
+		overflow-x: auto;
+	}
+	.chat-app .chat-history {
+		height: 600px;
+		overflow-x: auto;
+	}
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+	.chat-app .chat-list {
+		height: 480px;
+		overflow-x: auto;
+	}
+	.chat-app .chat-history {
+		height: calc(100vh - 350px);
+		overflow-x: auto;
+	}
+}

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<link
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+		/>
+
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-lg-12">
+					<div class="card chat-app">
+						<div id="plist" class="people-list">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"
+										><i class="fa fa-search"></i
+									></span>
+								</div>
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Search..."
+								/>
+							</div>
+
+							<!-- ? START: SIDEBAR -->
+							<ul id="chat-list" class="list-unstyled chat-list mt-2 mb-0"></ul>
+							<!-- ? END: SIDEBAR -->
+
+							<div id="new-chat" class="col-lg-6 hidden-sm d-flex">
+								<!-- ? START: CHAT OPTIONS -->
+								<a
+									id="new-group-chat"
+									href="javascript:void(0);"
+									class="btn btn-outline-primary mr-2"
+									data-toggle="modal"
+									data-target="#newGroupModal"
+								>
+									<i class="fa fa-group"></i>
+								</a>
+
+								<a
+									id="new-private-chat"
+									href="javascript:void(0);"
+									class="btn btn-outline-info mr-2"
+									data-toggle="modal"
+									data-target="#newPrivateModal"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="19"
+										height="19"
+										fill="currentColor"
+										class="bi bi-person-fill"
+										viewBox="0 0 16 16"
+									>
+										<path
+											d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+										/>
+									</svg>
+								</a>
+
+								<a
+									id="user-setting"
+									href="javascript:void(0);"
+									class="btn btn-outline-secondary"
+									data-toggle="modal"
+									data-target="#userSettingModal"
+								>
+									<i class="fa fa-cogs"></i
+								></a>
+								<!-- ? END: CHAT OPTIONS -->
+							</div>
+						</div>
+						<div class="chat">
+							<div class="chat-header clearfix">
+								<!-- ? START: CHAT ABOUT -->
+								<div id="chat-about" class="row"></div>
+								<!-- ? END: CHAT ABOUT -->
+							</div>
+							<!-- ? START: CHAT HISTORY MESSAGES -->
+							<div id="chat-history" class="chat-history">
+								<!-- ? START: CHAT HISTORY MESSAGES -->
+								<ul id="chat-history-list" class="m-b-0"></ul>
+								<!-- ? END: HISTORY MESSAGES -->
+							</div>
+							<!-- ? END: HISTORY MESSAGES -->
+							<div class="chat-message clearfix">
+								<!-- ? START: SEND INPUT -->
+								<div id="send-input-div" class="input-group mb-0"></div>
+								<!-- ? END: SEND INPUT -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ? START: user setting Modal -->
+		<div
+			class="modal fade"
+			id="userSettingModal"
+			tabindex="-1"
+			aria-labelledby="userSettingModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="userSettingModalLabel">User Setting</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<!-- ? START: USERNAME FORM -->
+						<form id="usernameForm" class="p-3">
+							<div class="form-group">
+								<label for="usernameSettingInput">username</label>
+								<input
+									type="text"
+									name="username"
+									class="form-control"
+									id="usernameSettingInput"
+									placeholder="username"
+								/>
+							</div>
+							<div class="form-group d-flex justify-content-end">
+								<button type="button" class="btn btn-primary">
+									Save changes
+								</button>
+							</div>
+						</form>
+						<!-- ? END: USERNAME FORM -->
+
+						<!-- ? START IMAGE UPLOAD FORM -->
+						<form id="imageUploadForm" class="p-3 mt-3">
+							<div class="form-group">
+								<label for="imageInput">Upload Profile Image</label>
+								<div class="custom-file">
+									<input
+										type="file"
+										name="image"
+										class="custom-file-input"
+										id="imageInput"
+										accept="image/*"
+									/>
+									<label class="custom-file-label" for="imageInput"
+										>Choose file</label
+									>
+								</div>
+							</div>
+							<div class="form-group d-flex justify-content-end">
+								<button type="button" class="btn btn-primary">
+									Upload Image
+								</button>
+							</div>
+						</form>
+						<!-- ? END IMAGE UPLOAD FORM -->
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-dismiss="modal"
+						>
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ? END: user setting Modal -->
+
+		<!-- ? START: new group Modal -->
+		<div
+			class="modal fade"
+			id="newGroupModal"
+			tabindex="-1"
+			aria-labelledby="newGroupModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="newGroupModalLabel">New Group</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<!-- ? START: new group FORM -->
+						<form id="newGroupForm" class="p-3">
+							<div class="form-group">
+								<label for="groupNameInput">name</label>
+								<input
+									name="name"
+									type="text"
+									class="form-control"
+									id="groupNameInput"
+									placeholder="group name"
+								/>
+							</div>
+							<div class="form-group">
+								<label for="groupUsersInput">Users</label>
+								<select
+									multiple
+									name="users"
+									class="form-control custom-select"
+									id="groupUsersInput"
+								></select>
+							</div>
+
+							<input
+								name="type"
+								type="hidden"
+								class="form-control"
+								id="groupTypeInput"
+								value="group"
+							/>
+							<div class="form-group d-flex justify-content-end">
+								<button type="button" class="btn btn-primary">
+									Save changes
+								</button>
+							</div>
+						</form>
+						<!-- ? END: new group FORM -->
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-dismiss="modal"
+						>
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ? END: new group Modal -->
+
+		<!-- ? START: new private Modal -->
+		<div
+			class="modal fade"
+			id="newPrivateModal"
+			tabindex="-1"
+			aria-labelledby="newPrivateModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="newPrivateModalLabel">New Chat</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<!-- ? START: new private FORM -->
+						<form id="newPrivateChatForm" class="p-3">
+							<div class="form-group">
+								<label for="privateChatUsersInput">Users</label>
+								<select
+									name="users"
+									class="form-control custom-select-enhanced"
+									id="privateChatUsersInput"
+								>
+									<option disabled selected>Select a user</option>
+								</select>
+							</div>
+
+							<input
+								name="type"
+								type="hidden"
+								class="form-control"
+								id="groupTypeInput"
+								value="private"
+							/>
+							<div class="form-group d-flex justify-content-end">
+								<button type="button" class="btn btn-primary">
+									Save changes
+								</button>
+							</div>
+						</form>
+						<!-- ? END: new private FORM -->
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-dismiss="modal"
+						>
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ? END: new private Modal -->
+
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script type="module" src="./index.js"></script>
+	</body>
+</html>
